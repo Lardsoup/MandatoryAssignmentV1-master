@@ -3,6 +3,6 @@
     <string name="app_login_name_hint">Name</string>
     <string name="app_login_password_hint">Password</string>
     <string name="app_login_button_name">Login</string>
-    <string name="app_MainMenu_buton_OwnObservations">Own Observations</string>
-    <string name="app_MainMenu_button_OthersObservations">Others Observations</string>
+    <string name="app_MainMenu_buton_OwnObservations">Own\n Observations</string>
+    <string name="app_MainMenu_button_OthersObservations">Others\n Observations</string>
 </resources>
