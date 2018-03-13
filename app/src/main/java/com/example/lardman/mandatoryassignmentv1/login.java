@@ -18,7 +18,7 @@ public class login extends AppCompatActivity {
     //TODO: login button skal laves.. den kan kun gå til næste side lige nu.. checker intet
     public void LoginButtonClicked(View view)
     {
-        Log.d(TAG, "Login button pressed");
+        Log.d("TAG", "Login button pressed");
         Intent intent = new Intent(this, MainMenu.class);
         //startActivity(intent);
         startActivityForResult(intent, 31415);
