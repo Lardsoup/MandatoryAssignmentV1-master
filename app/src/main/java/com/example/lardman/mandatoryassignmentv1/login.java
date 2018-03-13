@@ -3,6 +3,7 @@ package com.example.lardman.mandatoryassignmentv1;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -17,6 +18,7 @@ public class login extends AppCompatActivity {
     //TODO: login button skal laves.. den kan kun gå til næste side lige nu.. checker intet
     public void LoginButtonClicked(View view)
     {
+        Log.d(TAG, "Login button pressed");
         Intent intent = new Intent(this, MainMenu.class);
         //startActivity(intent);
         startActivityForResult(intent, 31415);

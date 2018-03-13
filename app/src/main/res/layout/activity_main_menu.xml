@@ -8,8 +8,10 @@
     tools:context="com.example.lardman.mandatoryassignmentv1.MainMenu">
 
     <fragment
+        class="com.example.lardman.mandatoryassignmentv1.fragment_bird_list"
         android:id="@+id/fragmentObservationList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout="@layout/activity_fragment_bird_list"/>
 
 </LinearLayout>
