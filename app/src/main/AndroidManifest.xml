@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lardman.mandatoryassignmentv1">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainMenu" />
-        <activity android:name=".fragment_bird_list"></activity>
+        <activity android:name=".fragment_bird_list" />
+        <activity android:name=".BirdActivity"></activity>
     </application>
 
 </manifest>

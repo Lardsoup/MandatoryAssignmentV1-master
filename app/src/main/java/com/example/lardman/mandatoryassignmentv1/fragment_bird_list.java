@@ -17,6 +17,7 @@ import com.google.gson.GsonBuilder;
 public class fragment_bird_list extends Fragment
 {
     public View view;
+
     public fragment_bird_list()
     {
         //Empty constructor
@@ -74,12 +75,12 @@ public class fragment_bird_list extends Fragment
 
             ListView listView = view.findViewById(R.id.mainMenuBirdObservationListView);
             //ArrayAdapter<Book> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_1, books);
-            BirdListItemAdapter adapter = new BirdListItemAdapter(getBaseContext(), R.layout.booklist_item, books);
+            BirdListItemAdapter adapter = new BirdListItemAdapter(getActivity(), R.layout.birdlist_item, birds);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(getBaseContext(), BookActivity.class);
+                    Intent intent = new Intent(getActivity(), BookActivity.class);
                     //Book book = books.get((int) id);
                     Bird bird = birds[(int) id];
                     intent.putExtra("BIRD", bird);
@@ -102,3 +103,4 @@ public class fragment_bird_list extends Fragment
     }
 
 }
+//TODO: sæt scrollview over listen i XML delen så man kan scolle listen
