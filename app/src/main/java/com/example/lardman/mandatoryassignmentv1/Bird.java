@@ -22,59 +22,81 @@ public class Bird implements Serializable
     private String PhotoUrl;
     @SerializedName("UserId")
     private String UserId;
-}
-/*public Book() {
+
+    public Bird(int id, String created, String nameDanish, String nameEnglish, String photoUrl, String userId)
+    {
+        this.Id = id;
+        this.Created = created;
+        this.NameDanish = nameDanish;
+        this.NameEnglish = nameEnglish;
+        this.PhotoUrl = photoUrl;
+        this.UserId = userId;
     }
 
-    public Book(int id, String author, String title, String publisher, double price) {
-        this.id = id;
-        this.author = author;
-        this.title = title;
-        this.publisher = publisher;
-        this.price = price;
+    public void setId(int id)
+    {
+        this.Id = id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCreated(String created)
+    {
+        this.Created = created;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNameDanish(String nameDanish)
+    {
+        this.NameDanish = nameDanish;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setNameEnglish(String nameEnglish)
+    {
+        this.NameEnglish = nameEnglish;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPhotoUrl(String photoUrl)
+    {
+        this.PhotoUrl = photoUrl;
     }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setUserId(String userId)
+    {
+        this.UserId = userId;
     }
 
-    public int getId() {
-        return id;
+
+    public int getId()
+    {
+        return Id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getCreated()
+    {
+        return Created;
     }
 
-    public double getPrice() {
-        return price;
+    public String getNameDanish()
+    {
+        return NameDanish;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getNameEnglish()
+    {
+        return NameEnglish;
     }
 
-    public String getPublisher() {
-        return publisher;
+    public String getPhotoUrl()
+    {
+        return PhotoUrl;
+    }
+
+    public String getUserId()
+    {
+        return UserId;
     }
 
     @Override
-    public String toString() {
-        return title;
-    }*/
+    public String toString()
+    {
+        return NameEnglish;
+    }
+}

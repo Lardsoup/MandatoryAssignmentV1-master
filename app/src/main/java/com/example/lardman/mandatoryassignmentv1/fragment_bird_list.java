@@ -55,42 +55,23 @@ public class fragment_bird_list extends Fragment
         @Override
         protected void onPostExecute(CharSequence jsonString)
         {
-            /*
-            final List<Book> books = new ArrayList<>();
-            try {
-                JSONArray array = new JSONArray(jsonString.toString());
-                for (int i = 0; i < array.length(); i++) {
-                    JSONObject obj = array.getJSONObject(i);
-                    String author = obj.getString("Author");
-                    double price = obj.getDouble("Price");
-                    String title = obj.getString("Title");
-                    String publisher = obj.getString("Publisher");
-                    int id = obj.getInt("Id");
-                    Book book = new Book(id, author, title, publisher, price);
-                    books.add(book);
-                }
-                */
             Gson gson = new GsonBuilder().create();
             final Bird[] birds = gson.fromJson(jsonString.toString(), Bird[].class);
 
             ListView listView = view.findViewById(R.id.mainMenuBirdObservationListView);
-            //ArrayAdapter<Book> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_list_item_1, books);
             BirdListItemAdapter adapter = new BirdListItemAdapter(getActivity(), R.layout.birdlist_item, birds);
             listView.setAdapter(adapter);
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+            {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(getActivity(), BookActivity.class);
-                    //Book book = books.get((int) id);
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                {
+                    Intent intent = new Intent(getActivity(), BirdActivity.class);
                     Bird bird = birds[(int) id];
                     intent.putExtra("BIRD", bird);
                     startActivity(intent);
                 }
             });
-           /* } catch (JSONException ex) {
-                messageTextView.setText(ex.getMessage());
-                Log.e("BOOKS", ex.getMessage());
-            }*/
         }
 
 
@@ -98,7 +79,7 @@ public class fragment_bird_list extends Fragment
         protected void onCancelled(CharSequence message) {
             TextView messageTextView = findViewById(R.id.main_message_textview);
             messageTextView.setText(message);
-            Log.e("BOOKS", message.toString());
+            Log.e("BIRDS", message.toString());
         }
     }
 
