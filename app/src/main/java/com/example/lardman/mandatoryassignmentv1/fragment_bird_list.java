@@ -16,8 +16,6 @@ import com.google.gson.GsonBuilder;
 
 public class fragment_bird_list extends Fragment
 {
-    public View view;
-
     public fragment_bird_list()
     {
         //Empty constructor
@@ -32,7 +30,7 @@ public class fragment_bird_list extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        view =  inflater.inflate(R.layout.activity_fragment_bird_list, container, false);
+        View view =  inflater.inflate(R.layout.activity_fragment_bird_list, container, false);
 
         final ListView listView = view.findViewById(R.id.mainMenuBirdObservationListView);
 
@@ -48,7 +46,7 @@ public class fragment_bird_list extends Fragment
         task.execute("http://anbo-restserviceproviderbooks.azurewebsites.net/Service1.svc/books");
     }
 
-    //TODO: der er noget galt her, findViewById tilhører AppCompatActivity, find ud af hvornår / hvordan du henter den her liste
+    //TODO: skal læses igennem og finde ud af om alt er iorden
     private class ReadTask extends ReadHttpTask
     {
 
@@ -58,7 +56,7 @@ public class fragment_bird_list extends Fragment
             Gson gson = new GsonBuilder().create();
             final Bird[] birds = gson.fromJson(jsonString.toString(), Bird[].class);
 
-            ListView listView = view.findViewById(R.id.mainMenuBirdObservationListView);
+            ListView listView = getActivity().findViewById(R.id.mainMenuBirdObservationListView);
             BirdListItemAdapter adapter = new BirdListItemAdapter(getActivity(), R.layout.birdlist_item, birds);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
