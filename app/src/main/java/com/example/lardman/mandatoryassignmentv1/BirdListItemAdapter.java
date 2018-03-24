@@ -22,35 +22,48 @@ public class BirdListItemAdapter extends ArrayAdapter<Bird>
 {
     private final int resource;
 
-    public BirdListItemAdapter(Context context, int resource, List<Bird> objects) {
+    public BirdListItemAdapter(Context context, int resource, List<Bird> objects)
+    {
         super(context, resource, objects);
         this.resource = resource;
     }
 
-    public BirdListItemAdapter(Context context, int resource, Bird[] objects) {
+    public BirdListItemAdapter(Context context, int resource, Bird[] objects)
+    {
         super(context, resource, objects);
         this.resource = resource;
     }
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent)
+    {
         Bird bird = getItem(position);
-        String title = bird.getTitle();
-        String author = bird.getAuthor();
-        LinearLayout bookView;
-        if (convertView == null) {
-            bookView = new LinearLayout(getContext());
+        String name = bird.getNameDanish(); //TODO: sat til nameDanish.. hør lige hvordan det skal sættes op
+        String created = bird.getCreated();
+        int id = bird.getId();
+        LinearLayout birdView;
+
+        if (convertView == null)
+        {
+            birdView = new LinearLayout(getContext());
             String inflater = Context.LAYOUT_INFLATER_SERVICE;
             LayoutInflater li = (LayoutInflater) getContext().getSystemService(inflater);
-            li.inflate(resource, bookView, true);
-        } else {
-            bookView = (LinearLayout) convertView;
+            li.inflate(resource, birdView, true);
         }
-        TextView titleView = bookView.findViewById(R.id.booklist_item_title);
-        TextView authorView = bookView.findViewById(R.id.booklist_item_author);
-        titleView.setText(title);
-        authorView.setText(" by " + author);
-        return bookView;
+        else
+        {
+            birdView = (LinearLayout) convertView;
+        }
+
+        TextView nameView = birdView.findViewById(R.id.birdlist_item_name);
+        TextView createdView = birdView.findViewById(R.id.birdlist_item_created);
+        TextView idView = birdView.findViewById(R.id.birdlist_item_id);
+
+        nameView.setText(name);
+        createdView.setText(created);
+        idView.setText(id);
+
+        return birdView;
     }
 }

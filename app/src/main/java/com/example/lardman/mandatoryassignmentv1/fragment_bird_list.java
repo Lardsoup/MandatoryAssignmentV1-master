@@ -38,6 +38,7 @@ public class fragment_bird_list extends Fragment
     }
 
     //TODO: fix denne metode
+    //TODO: skal have liste fra birdListItemAdapter.. se bookstore main
     @Override
     public void onStart()
     {

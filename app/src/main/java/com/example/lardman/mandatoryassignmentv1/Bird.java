@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Created by Lardman on 13-03-2018.
  */
-//TODO: Lav bird class
+
 public class Bird implements Serializable
 {
     @SerializedName("Created")

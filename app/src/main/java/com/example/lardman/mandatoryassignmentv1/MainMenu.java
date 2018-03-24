@@ -13,7 +13,7 @@ public class MainMenu extends AppCompatActivity
         setContentView(R.layout.activity_main_menu);
     }
 
-    //TODO: færdiggør knapper og indsæt fragment
+    //TODO: fjern knapper og sørg for at fragment er frisk
     public void OwnObservationsButtonClicked(View view)
     {
 

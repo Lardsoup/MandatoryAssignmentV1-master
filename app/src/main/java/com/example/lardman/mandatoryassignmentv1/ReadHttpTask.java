@@ -8,7 +8,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import java.io.IOException;
 
-//TODO: kig på den her class og find ud af hvad den laver og om det passer til dit program
+
 public class ReadHttpTask extends AsyncTask<String, Void, CharSequence> {
     @Override
     protected CharSequence doInBackground(String... urls) {
@@ -19,7 +19,7 @@ public class ReadHttpTask extends AsyncTask<String, Void, CharSequence> {
         } catch (IOException ex) {
             cancel(true);
             String errorMessage = ex.getMessage() + "\n" + urlString;
-            Log.e("BOOK", errorMessage);
+            Log.e("BIRD", errorMessage);
             return errorMessage;
         }
     }
