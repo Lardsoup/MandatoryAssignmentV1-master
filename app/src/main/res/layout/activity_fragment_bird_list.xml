@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!--TODO: få knapperne til at sidde ordenligt og smid fragment ind i bunden-->
         <Button
-            android:text="@string/app_MainMenu_buton_OwnObservations"
-            android:onClick="OwnObservationsButtonClicked"
-            android:id="@+id/ownObsButton"
+            android:id="@+id/fragmentBirdOwnObsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="OwnObservationsButtonClicked"
+            android:text="@string/app_MainMenu_buton_OwnObservations" />
 
         <Button
-            android:text="@string/app_MainMenu_button_OthersObservations"
-            android:onClick="OthersObservationsButtonClicked"
-            android:id="@+id/othersObsButton"
+            android:id="@+id/fragmentBirdOthersObsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="OthersObservationsButtonClicked"
+            android:text="@string/app_MainMenu_button_OthersObservations" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/mainMenuBirdObservationListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/fragmentBirdObservationListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </ListView>
+        </ListView>
+
+    <TextView
+        android:id="@+id/fragmentBird_Message_TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

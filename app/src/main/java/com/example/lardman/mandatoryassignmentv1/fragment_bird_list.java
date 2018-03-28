@@ -32,10 +32,12 @@ public class fragment_bird_list extends Fragment
     {
         View view =  inflater.inflate(R.layout.activity_fragment_bird_list, container, false);
 
-        final ListView listView = view.findViewById(R.id.mainMenuBirdObservationListView);
+        final ListView listView = view.findViewById(R.id.fragmentBirdObservationListView);
 
         return view;
     }
+
+    //TODO:Appen crasher når den har ReadTask på, kan være mangel på adapter? not sure
 
     //TODO: fix denne metode
     //TODO: skal have liste fra birdListItemAdapter.. se bookstore main
@@ -47,7 +49,8 @@ public class fragment_bird_list extends Fragment
         task.execute("http://anbo-restserviceproviderbooks.azurewebsites.net/Service1.svc/books");
     }
 
-    //TODO: skal læses igennem og finde ud af om alt er iorden
+
+    //TODO: skulle gerne være iorden.. kig her hvis der er problemer
     private class ReadTask extends ReadHttpTask
     {
 
@@ -57,7 +60,7 @@ public class fragment_bird_list extends Fragment
             Gson gson = new GsonBuilder().create();
             final Bird[] birds = gson.fromJson(jsonString.toString(), Bird[].class);
 
-            ListView listView = getActivity().findViewById(R.id.mainMenuBirdObservationListView);
+            ListView listView = getActivity().findViewById(R.id.fragmentBirdObservationListView);
             BirdListItemAdapter adapter = new BirdListItemAdapter(getActivity(), R.layout.birdlist_item, birds);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -65,7 +68,7 @@ public class fragment_bird_list extends Fragment
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id)
                 {
-                    Intent intent = new Intent(getActivity(), BirdActivity.class);
+                    Intent intent = new Intent(getActivity(), SpecificBirdActivity.class);
                     Bird bird = birds[(int) id];
                     intent.putExtra("BIRD", bird);
                     startActivity(intent);
@@ -76,11 +79,10 @@ public class fragment_bird_list extends Fragment
 
         @Override
         protected void onCancelled(CharSequence message) {
-            TextView messageTextView = findViewById(R.id.main_message_textview);
+            TextView messageTextView = getActivity().findViewById(R.id.fragmentBird_Message_TextView);
             messageTextView.setText(message);
             Log.e("BIRDS", message.toString());
         }
     }
 
 }
-//TODO: sæt scrollview over listen i XML delen så man kan scolle listen
